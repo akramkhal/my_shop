@@ -18,7 +18,7 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text text-muted">{{ product.category }}</p>
                       <p class="card-text fw-bold">Price: {{ product.price }}</p>
-                      <a href="#">see more >>></a>
+                      <a href="{% url 'product_view' product.pk %}">see more >>></a>
                   </div>
                 </div>
               </div>

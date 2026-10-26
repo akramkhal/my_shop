@@ -7,3 +7,9 @@ body {
     height: 200px;
     object-fit: cover
 }
+
+.product-img-lg {
+    width: 100%;
+    height: 350px;
+    object-fit: cover
+}
