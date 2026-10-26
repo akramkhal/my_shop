@@ -12,11 +12,14 @@
 
 <nav class="navbar navbar-expand bg-primary" data-bs-theme="dark">
   <div class="container">
-    <a class="navbar-brand" href="#">My market</a>
+    <a class="navbar-brand" href="{% url 'index' %}">My market</a>
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="#">Products</a>
+        <a class="nav-link" href="{% url 'products' %}">Products</a>
+          <span class="navbar-text">|</span>
         <a class="nav-link" href="#">Categories</a>
+          <span class="navbar-text">|</span>
         <a class="nav-link" href="#">Add Product</a>
+          <span class="navbar-text">|</span>
         <a class="nav-link" href="#">Add Category</a>
       </div>
   </div>
@@ -25,6 +28,6 @@
 <div class="container mt-4">
     {% block content %}{% endblock %}
 </div>
-
 </body>
 </html>
+
