@@ -3,7 +3,6 @@
 {% block title %}Products{% endblock %}
 
 {% block content %}
-<h1>Products</h1>
 {% if products %}
     <div class="row row-cols-1 row-cols-lg-2 g-4">
         {% for product in products %}
@@ -27,6 +26,6 @@
         {% endfor %}
     </div>
 {% else %}
-<div class="alert alert-info">No products yet!</div>
+<div class="alert alert-danger">No products yet!</div>
 {% endif %}
 {% endblock %}
