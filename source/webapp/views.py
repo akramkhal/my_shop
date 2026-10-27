@@ -35,7 +35,7 @@ def category_add_view(request):
                 'errors': errors}
             return render(request, 'category_add.html', context)
         Category.objects.create(name=name, description=description)
-        return redirect('index')
+        return redirect('categories')
 
 
 def product_add_view(request):
@@ -81,3 +81,6 @@ def product_add_view(request):
         return redirect('product_view', pk=product.pk)
 
 
+def categories_view(request):
+    categories = Category.objects.all().order_by('name')
+    return render(request, 'categories.html', {'categories': categories})
