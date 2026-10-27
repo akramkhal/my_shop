@@ -1,3 +1,5 @@
+from decimal import Decimal, InvalidOperation
+
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Product, Category
 
@@ -34,4 +36,48 @@ def category_add_view(request):
             return render(request, 'category_add.html', context)
         Category.objects.create(name=name, description=description)
         return redirect('index')
+
+
+def product_add_view(request):
+    if request.method == 'GET':
+        return render(request, 'product_add.html', {'categories': Category.objects.all()})
+    elif request.method == 'POST':
+        name = request.POST.get('name', "").strip()
+        price = request.POST.get('price', "").strip()
+        image = request.POST.get('image', "").strip()
+        category = request.POST.get('category', "").strip()
+        description = request.POST.get('description', "").strip()
+
+        errors = []
+        if not name:
+            errors.append("Название обязательно!")
+        if not image:
+            errors.append("Ссылка на изображение обязательна!")
+        if price:
+            try:
+                value = Decimal(price)
+            except InvalidOperation:
+                errors.append("Неверная цена!")
+            else:
+                if  value <= 0:
+                    errors.append("Неверная цена!")
+        else:
+            errors.append("Цена обязательна!")
+        if not category.isdigit() or not Category.objects.filter(pk=category).exists():
+            errors.append("Выберите категорию!")
+
+        if errors:
+            context = {
+                'name': name,
+                'image': image,
+                'price': price,
+                'description': description or "",
+                'category': category,
+                'categories': Category.objects.all(),
+                'errors': errors}
+            return render(request, 'product_add.html', context)
+
+        product = Product.objects.create(name=name, image=image, price=price, description=description, category_id=category)
+        return redirect('product_view', pk=product.pk)
+
 
