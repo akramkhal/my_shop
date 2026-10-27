@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Category{% endblock %}
+
+{% block content %}
+<h1>Edit Category</h1>
+
+<div class="col-md-6">
+    {% if errors %}
+    {% for error in errors %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'category_edit' category.pk %}" method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Title</label>
+            <input id="name" name="name" class="form-control" type="text" value="{{ name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" name="description" class="form-control"
+                      rows="4">{{ description }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit category</button>
+    </form>
+</div>
+{% endblock %}

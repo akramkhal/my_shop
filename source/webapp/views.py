@@ -91,3 +91,37 @@ def category_delete_view(request, pk):
         category = get_object_or_404(Category, pk=pk)
         category.delete()
     return redirect('categories')
+
+def category_edit_view(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+
+    if request.method == 'GET':
+        context = {
+            'category': category,
+            'name': category.name,
+            'description': category.description or "",
+        }
+        return render(request, 'category_edit.html', context)
+    elif request.method == 'POST':
+        name = request.POST.get('name', "").strip()
+        description = request.POST.get('description', "").strip()
+
+        errors = []
+        if not name:
+            errors.append("Название обязательно!")
+        elif Category.objects.filter(name=name).exclude(pk=category.pk).exists():
+            errors.append("Такая категория уже существует!")
+
+        if errors:
+            context = {
+                'category': category,
+                'name': name,
+                'description': description,
+                'errors': errors,
+            }
+            return render(request, 'category_edit.html', context)
+
+        category.name = name
+        category.description = description
+        category.save()
+        return redirect('categories')
