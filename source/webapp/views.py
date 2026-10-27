@@ -84,3 +84,10 @@ def product_add_view(request):
 def categories_view(request):
     categories = Category.objects.all().order_by('name')
     return render(request, 'categories.html', {'categories': categories})
+
+
+def category_delete_view(request, pk):
+    if request.method == 'POST':
+        category = get_object_or_404(Category, pk=pk)
+        category.delete()
+    return redirect('categories')
