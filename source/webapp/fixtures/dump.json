@@ -1,0 +1,66 @@
+[
+{
+  "model": "webapp.category",
+  "pk": 3,
+  "fields": {
+    "name": "Машины",
+    "description": "Автомобили и автоаксессуары: всё необходимое для вашей машины."
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 4,
+  "fields": {
+    "name": "Одежда",
+    "description": "Мужская и женская одежда на любой сезон."
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "Держатель для телефона",
+    "description": "Магнитный держатель для телефона на панель автомобиля. Подходит для всех смартфонов, поворачивается на 360 градусов.",
+    "category": 3,
+    "created_at": "2026-10-26T22:36:40.357Z",
+    "price": "25.99",
+    "image": "https://img.kwcdn.com/product/fancy/f46b454e-31da-4fe7-b1fb-e954d65ab733.jpg?imageView2/2/w/800/q/70/format/avif"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Чехлы для сидений",
+    "description": "Комплект из 5 универсальных чехлов. Водонепроницаемые, легко устанавливаются и моются.",
+    "category": 3,
+    "created_at": "2026-10-26T22:37:52.648Z",
+    "price": "89.50",
+    "image": "https://avto-ambition.com.ua/uploads/shop/products/large/5ab21c4def69d5f22a224d2e7d116f78.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Зимняя куртка",
+    "description": "Тёплый пуховик с капюшоном. Не промокает, подходит для температуры до −20 градусов.",
+    "category": 4,
+    "created_at": "2026-10-26T22:38:36.948Z",
+    "price": "149.00",
+    "image": "https://sunshouse.com.ua/image/cache/catalog/image/cache/catalog/muzhskie-kurtki-new/B-027/B-027-1-512x763.webp"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Хлопковая футболка",
+    "description": "Базовая футболка из 100% хлопка. Цвета: чёрный, белый, серый.",
+    "category": 4,
+    "created_at": "2026-10-26T22:42:31.046Z",
+    "price": "15.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ6ateKg72r0ddTyYZMYuE8U8GiDluUFNzg3EFcDNZSWRA03NF0IqtovM&s=10"
+  }
+}
+]
