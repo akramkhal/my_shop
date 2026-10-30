@@ -5,7 +5,7 @@ from webapp.models import Product, Category
 
 def products_view(request):
     context = {
-        'products': Product.objects.all().order_by('-created_at')
+        'products': Product.objects.filter(stock__gt=0).order_by('category__name', 'name')
     }
     return render(request, 'products.html', context)
 

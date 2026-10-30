@@ -51,7 +51,7 @@
     "created_at": "2026-10-26T22:38:36.948Z",
     "price": "149.00",
     "image": "https://sunshouse.com.ua/image/cache/catalog/image/cache/catalog/muzhskie-kurtki-new/B-027/B-027-1-512x763.webp",
-    "stock": 0
+    "stock": 2
   }
 },
 {
@@ -64,7 +64,7 @@
     "created_at": "2026-10-26T22:42:31.046Z",
     "price": "15.00",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ6ateKg72r0ddTyYZMYuE8U8GiDluUFNzg3EFcDNZSWRA03NF0IqtovM&s=10",
-    "stock": 0
+    "stock": 44
   }
 },
 {
@@ -90,7 +90,7 @@
     "created_at": "2026-10-30T13:15:22.714Z",
     "price": "79.00",
     "image": "https://instinct.no/cdn/shop/files/3afb88b5-d789-4d9e-90a9-ca0a0189a194.jpg?v=1773688686&width=1200",
-    "stock": 0
+    "stock": 14
   }
 }
 ]
