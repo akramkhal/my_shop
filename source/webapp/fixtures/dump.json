@@ -24,7 +24,8 @@
     "category": 3,
     "created_at": "2026-10-26T22:36:40.357Z",
     "price": "25.99",
-    "image": "https://img.kwcdn.com/product/fancy/f46b454e-31da-4fe7-b1fb-e954d65ab733.jpg?imageView2/2/w/800/q/70/format/avif"
+    "image": "https://img.kwcdn.com/product/fancy/f46b454e-31da-4fe7-b1fb-e954d65ab733.jpg?imageView2/2/w/800/q/70/format/avif",
+    "stock": 0
   }
 },
 {
@@ -36,7 +37,8 @@
     "category": 3,
     "created_at": "2026-10-26T22:37:52.648Z",
     "price": "89.50",
-    "image": "https://avto-ambition.com.ua/uploads/shop/products/large/5ab21c4def69d5f22a224d2e7d116f78.jpg"
+    "image": "https://avto-ambition.com.ua/uploads/shop/products/large/5ab21c4def69d5f22a224d2e7d116f78.jpg",
+    "stock": 0
   }
 },
 {
@@ -48,7 +50,8 @@
     "category": 4,
     "created_at": "2026-10-26T22:38:36.948Z",
     "price": "149.00",
-    "image": "https://sunshouse.com.ua/image/cache/catalog/image/cache/catalog/muzhskie-kurtki-new/B-027/B-027-1-512x763.webp"
+    "image": "https://sunshouse.com.ua/image/cache/catalog/image/cache/catalog/muzhskie-kurtki-new/B-027/B-027-1-512x763.webp",
+    "stock": 0
   }
 },
 {
@@ -60,7 +63,34 @@
     "category": 4,
     "created_at": "2026-10-26T22:42:31.046Z",
     "price": "15.00",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ6ateKg72r0ddTyYZMYuE8U8GiDluUFNzg3EFcDNZSWRA03NF0IqtovM&s=10"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ6ateKg72r0ddTyYZMYuE8U8GiDluUFNzg3EFcDNZSWRA03NF0IqtovM&s=10",
+    "stock": 0
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Автомобильный компрессор",
+    "description": "Портативный компрессор для подкачки шин. Работает от прикуривателя, есть цифровой манометр и автоотключение.",
+    "category": 3,
+    "created_at": "2026-10-30T13:14:25.329Z",
+    "price": "45.90",
+    "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0H8HL4p70UGzycNF5l-TKXOlXQ3aXZxMgFGarxwKdKLXA30mFC5ZlMgsbR0gkLXzdNoILdsNdkB0u7GM6f26JZwGz2IUkCCzcOBe6FBElaMycY4cpkF_y1U3G02aD8EofLcLg2dU&usqp=CAc",
+    "stock": 12
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Шерстяной свитер",
+    "description": "Тёплый вязаный свитер из мериносовой шерсти. Классический крой, подходит для офиса и прогулок.",
+    "category": 4,
+    "created_at": "2026-10-30T13:15:22.714Z",
+    "price": "79.00",
+    "image": "https://instinct.no/cdn/shop/files/3afb88b5-d789-4d9e-90a9-ca0a0189a194.jpg?v=1773688686&width=1200",
+    "stock": 0
   }
 }
 ]
