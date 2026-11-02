@@ -9,7 +9,7 @@ def products_view(request):
         products = Product.objects.all().filter(name__icontains=form.cleaned_data.get('search'), stock__gt=0).order_by('category__name', 'name')
     else:
         products = Product.objects.all().filter(stock__gt=0).order_by('category__name', 'name')
-    return render(request, 'products.html', {'products': products, 'form': form})
+    return render(request, 'products.html', {'products': products, 'search_form': form})
 
 
 def product_view(request, pk):
