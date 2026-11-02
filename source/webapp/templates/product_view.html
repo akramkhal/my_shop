@@ -15,6 +15,10 @@
           <p class="card-text fs-4 fw-bold">Price: {{ product.price }}</p>
           <p class="card-text">{{ product.description|default:"Нет описания" }}</p>
           <p class="card-text text-muted small">added: {{ product.created_at|date:"d/m/Y H:i" }}</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="{% url 'product_edit' product.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'product_delete' product.pk %}" class="btn btn-danger">Delete</a>
+          </div>
       </div>
     </div>
   </div>
