@@ -2,6 +2,7 @@ from decimal import Decimal, InvalidOperation
 
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Product, Category
+from webapp.forms import ProductForm
 
 def products_view(request):
     context = {
@@ -40,45 +41,21 @@ def category_add_view(request):
 
 def product_add_view(request):
     if request.method == 'GET':
-        return render(request, 'product_add.html', {'categories': Category.objects.all()})
+        form = ProductForm()
+        return render(request, 'product_add.html', {'form': form})
     elif request.method == 'POST':
-        name = request.POST.get('name', "").strip()
-        price = request.POST.get('price', "").strip()
-        image = request.POST.get('image', "").strip()
-        category = request.POST.get('category', "").strip()
-        description = request.POST.get('description', "").strip()
-
-        errors = []
-        if not name:
-            errors.append("Название обязательно!")
-        if not image:
-            errors.append("Ссылка на изображение обязательна!")
-        if price:
-            try:
-                value = Decimal(price)
-            except InvalidOperation:
-                errors.append("Неверная цена!")
-            else:
-                if  value <= 0:
-                    errors.append("Неверная цена!")
+        form = ProductForm(data=request.POST)
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            price = form.cleaned_data.get('price')
+            image = form.cleaned_data.get('image')
+            category = form.cleaned_data.get('category')
+            description = form.cleaned_data.get('description')
+            stock = form.cleaned_data.get('stock')
+            product = Product.objects.create(name=name, price=price, image=image, category=category, description=description, stock=stock)
+            return redirect('product_view', pk=product.pk)
         else:
-            errors.append("Цена обязательна!")
-        if not category.isdigit() or not Category.objects.filter(pk=category).exists():
-            errors.append("Выберите категорию!")
-
-        if errors:
-            context = {
-                'name': name,
-                'image': image,
-                'price': price,
-                'description': description or "",
-                'category': category,
-                'categories': Category.objects.all(),
-                'errors': errors}
-            return render(request, 'product_add.html', context)
-
-        product = Product.objects.create(name=name, image=image, price=price, description=description, category_id=category)
-        return redirect('product_view', pk=product.pk)
+            return render(request, 'product_add.html', {'form': form})
 
 
 def categories_view(request):
