@@ -12,3 +12,6 @@ class ProductForm(forms.Form):
     stock = forms.IntegerField(min_value=0, label='Остаток', widget=forms.NumberInput(attrs={'class': 'form-control'}))
     image = forms.URLField(max_length=1000, label='Изображение', widget=forms.URLInput(attrs={'class': 'form-control'}))
 
+class SearchForm(forms.Form):
+    search = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control',
+                                                                           'placeholder': 'Search by name'}))
