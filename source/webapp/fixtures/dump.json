@@ -92,5 +92,117 @@
     "image": "https://instinct.no/cdn/shop/files/3afb88b5-d789-4d9e-90a9-ca0a0189a194.jpg?v=1773688686&width=1200",
     "stock": 14
   }
+},
+{
+  "model": "webapp.product",
+  "pk": 23,
+  "fields": {
+    "name": "Видеорегистратор",
+    "description": "Full HD запись, ночной режим",
+    "category": 3,
+    "created_at": "2026-11-17T10:56:38.449Z",
+    "price": "119.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzykc6Skq3HdC8Vul7CWMtUzMLLoq8RFN_juTDzxRNpg&s=10",
+    "stock": 7
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 24,
+  "fields": {
+    "name": "Автомобильные коврики",
+    "description": "Резиновые коврики, комплект из 4 штук",
+    "category": 3,
+    "created_at": "2026-11-17T10:56:38.461Z",
+    "price": "39.90",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOnNUpqDllFvOXVudaHMINEXxXChFCLkCdtXoJyxzcZA&s=10",
+    "stock": 20
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 25,
+  "fields": {
+    "name": "Зарядное устройство USB",
+    "description": "Два порта, быстрая зарядка",
+    "category": 3,
+    "created_at": "2026-11-17T10:56:38.470Z",
+    "price": "12.50",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Xshq4wXQvDCVWhkRjqZLuf-WnGydBFxZ67WBb887_A&s=10",
+    "stock": 35
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 26,
+  "fields": {
+    "name": "Щётка для снега",
+    "description": "Телескопическая ручка со скребком",
+    "category": 3,
+    "created_at": "2026-11-17T10:56:38.480Z",
+    "price": "18.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo_yjV-pK2Dreueu56jNyqGb6MKRdPhxfFYvKncn262Q&s=10",
+    "stock": 15
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 27,
+  "fields": {
+    "name": "Джинсы классические",
+    "description": "Прямой крой, синий цвет",
+    "category": 4,
+    "created_at": "2026-11-17T10:56:38.488Z",
+    "price": "59.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPVLWbUCuV1T7ioKZfTzfhuzAPXJQXxv1bZPy4aKVtcg&s=10",
+    "stock": 25
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 28,
+  "fields": {
+    "name": "Шапка вязаная",
+    "description": "Тёплая шапка из шерсти",
+    "category": 4,
+    "created_at": "2026-11-17T10:56:38.497Z",
+    "price": "22.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYTh8Qsv8BcWi-bp-TtGU79ryEfKSkQMi7TkSP7lkPLQ&s=10",
+    "stock": 30
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 29,
+  "fields": {
+    "name": "Кроссовки беговые",
+    "description": "Лёгкие кроссовки для бега",
+    "category": 4,
+    "created_at": "2026-11-17T10:56:38.505Z",
+    "price": "99.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8rhgYubZsDBHd2ZH7cdqqR_DGjLTRfEXlrQm3_Zo18w&s=10",
+    "stock": 9
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 30,
+  "fields": {
+    "name": "Перчатки кожаные",
+    "description": "Кожаные перчатки с подкладкой",
+    "category": 4,
+    "created_at": "2026-11-17T10:56:38.515Z",
+    "price": "35.00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ44Ho6xKFVVUxsTlw32ByMePhA7ZvwARdcZStaTOMRzw&s=10",
+    "stock": 0
+  }
+},
+{
+  "model": "webapp.cartitem",
+  "pk": 1,
+  "fields": {
+    "product": 3,
+    "quantity": 2
+  }
 }
 ]
