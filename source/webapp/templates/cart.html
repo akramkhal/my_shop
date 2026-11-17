@@ -47,4 +47,25 @@
     {% else %}
         <div class="alert alert-info mt-3">Корзина пуста.</div>
     {% endif %}
+
+
+    <h2 class="h4 mt-4">Оформление заказа</h2>
+    <div class="col-md-6">
+        <form method="POST" action="{% url 'order_create' %}">
+            {% csrf_token %}
+            {% for error in form.non_field_errors %}
+                <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {% for error in field.errors %}
+                        <p class="text-danger small">{{ error }}</p>
+                    {% endfor %}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Оформить заказ</button>
+        </form>
+    </div>
 {% endblock %}

@@ -4,8 +4,8 @@ from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode, url_has_allowed_host_and_scheme
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View, TemplateView
 
-from webapp.forms import ProductForm, SearchForm
-from webapp.models import Product, Category, CartItem
+from webapp.forms import ProductForm, SearchForm, OrderForm
+from webapp.models import Product, Category, CartItem, Order, OrderProduct
 
 
 class ProductListView(ListView):
@@ -175,6 +175,7 @@ class CartView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_cart_context())
+        context['form'] = OrderForm()
         return context
 
 
@@ -193,3 +194,27 @@ class CartDecreaseView(View):
         else:
             cart_item.delete()
         return redirect('cart')
+
+
+
+
+class OrderCreateView(CreateView):
+    model = Order
+    form_class = OrderForm
+    template_name = 'cart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_cart_context())
+        return context
+
+    def form_valid(self, form):
+        cart_items = CartItem.objects.all()
+        if not cart_items.exists():
+            form.add_error(None, 'Корзина пуста.')
+            return self.form_invalid(form)
+        order = form.save()
+        for item in cart_items:
+            OrderProduct.objects.create(order=order, product=item.product, quantity=item.quantity)
+        cart_items.delete()
+        return redirect('index')
