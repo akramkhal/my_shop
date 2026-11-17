@@ -4,34 +4,44 @@
 
 {% block content %}
     <form method="GET">
-    <div class="d-flex gap-2">
-        {{ search_form.search }}
-        <button class="btn btn-primary">Search</button>
-    </div>
-    </form>
-{% if products %}
-    <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
-        {% for product in products %}
-        <div class="col">
-            <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="{{ product.image }}" class="product-img rounded-start" alt="{{ product.name }}">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text text-muted">{{ product.category }}</p>
-                      <p class="card-text fw-bold">Price: {{ product.price }}</p>
-                      <a href="{% url 'product_view' product.pk %}">see more >>></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="d-flex gap-2">
+            {{ search_form.search }}
+            <button class="btn btn-primary">Search</button>
         </div>
+    </form>
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+    <div class="row row-cols-1 row-cols-lg-2 g-4 mt-1">
+        {% for product in products %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ product.image }}" class="product-img rounded-start" alt="{{ product.name }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text text-muted">{{ product.category }}</p>
+                                <p class="card-text fw-bold">Price: {{ product.price }}</p>
+                                <a href="{% url 'product_view' product.pk %}">see more >>></a>
+                                {% include 'partial/cart_add.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No products found!</div>
+            </div>
         {% endfor %}
     </div>
-{% else %}
-<div class="alert alert-info">No products yet!</div>
-{% endif %}
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}

@@ -1,0 +1,6 @@
+<form method="POST" action="{% url 'cart_add' product.pk %}" class="d-flex gap-2 mt-2">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <input type="number" name="quantity" value="1" min="1" class="form-control form-control-sm" style="width: 80px;">
+    <button type="submit" class="btn btn-success btn-sm">Добавить в корзину</button>
+</form>
